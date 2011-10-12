@@ -1,0 +1,12 @@
+INSERT INTO emp (name) VALUES ('SMITH');
+INSERT INTO emp (name) VALUES ('ALLEN');
+INSERT INTO emp (name) VALUES ('WARD');
+INSERT INTO emp (name) VALUES ('JONES');
+INSERT INTO emp (name) VALUES ('MARTIN');
+INSERT INTO emp (name) VALUES ('BLAKE');
+INSERT INTO emp (name) VALUES ('CLARK');
+INSERT INTO emp (name) VALUES ('KING');
+INSERT INTO emp (name) VALUES ('TURNER');
+INSERT INTO emp (name) VALUES ('JAMES');
+INSERT INTO emp (name) VALUES ('FORD');
+INSERT INTO emp (name) VALUES ('MILLER');
