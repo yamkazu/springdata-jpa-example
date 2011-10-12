@@ -3,6 +3,8 @@ package org.yamkazu.springdata;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -28,6 +30,12 @@ public class EmpRepositoryTest {
         Emp e = repository.findByName("HomuHomu");
         assertThat(e, is(notNullValue()));
         assertThat(e.getName(), is(equalTo("HomuHomu")));
+    }
+
+    @Test
+    public void findAll() throws Exception {
+        List<Emp> all = repository.findAll();
+        assertThat(all.size(), is(not(0)));
     }
 
 }
