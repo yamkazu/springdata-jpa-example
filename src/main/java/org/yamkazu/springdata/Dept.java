@@ -3,10 +3,9 @@ package org.yamkazu.springdata;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Emp {
+public class Dept {
 
     @Id
     @GeneratedValue
@@ -14,19 +13,8 @@ public class Emp {
 
     private String name;
 
-    @ManyToOne
-    private Dept dept;
-
     public Long getId() {
         return id;
-    }
-
-    public Dept getDept() {
-        return dept;
-    }
-
-    public void setDept(Dept dept) {
-        this.dept = dept;
     }
 
     public void setId(Long id) {
@@ -43,7 +31,7 @@ public class Emp {
 
     @Override
     public String toString() {
-        return "Emp [id=" + id + ", name=" + name + ", dept=" + dept + "]";
+        return "Dept [id=" + id + ", name=" + name + "]";
     }
 
 }
