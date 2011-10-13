@@ -11,4 +11,3 @@ INSERT INTO emp (name, dept) VALUES ('KING', 2);
 INSERT INTO emp (name, dept) VALUES ('TURNER', 1);
 INSERT INTO emp (name, dept) VALUES ('JAMES', 2);
 INSERT INTO emp (name, dept) VALUES ('FORD', 2);
-INSERT INTO emp (name, dept) VALUES ('MILLER', 1);

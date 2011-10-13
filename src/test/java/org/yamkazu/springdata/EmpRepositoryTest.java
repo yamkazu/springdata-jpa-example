@@ -10,6 +10,8 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.repository.query.parser.OrderBySource;
@@ -74,4 +76,24 @@ public class EmpRepositoryTest {
         assertThat(emps.size(), is(not(equalTo(0))));
     }
 
+    @SuppressWarnings("unused")
+    @Test
+    public void findAll_pageable() throws Exception {
+        Page<Emp> page = repository.findAll(new PageRequest(3, 3));
+
+        List<Emp> emps = page.getContent(); // 取得した要素をListで取得
+        int number = page.getNumber(); // ページ番号を取得
+        int numberOfElements = page.getNumberOfElements(); // 取得したページの要素数
+        int size = page.getSize(); // 指定したページの要素数
+        long totalElements = page.getTotalElements(); // 全件の数を取得
+        int totalPages = page.getTotalPages(); // ページ数を取得
+
+        // ソートを指定する
+        page = repository.findAll(new PageRequest(0, 4, ASC, "dept.id", "name"));
+        assertThat(page.getSize(), is(4));
+
+        // OrderBySourceを使用してソートを指定する
+        page = repository.findAll(new PageRequest(0, 5, new OrderBySource("NameDesc").toSort()));
+        assertThat(page.getSize(), is(5));
+    }
 }
