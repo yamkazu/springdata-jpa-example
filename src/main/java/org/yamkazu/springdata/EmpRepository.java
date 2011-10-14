@@ -19,15 +19,15 @@ public interface EmpRepository extends JpaRepository<Emp, Long> {
 
     List<Emp> dept(Dept dept);
 
-    Page<Emp> findByDept(Dept dept, Pageable pageable);
-
-    //    List<Emp> findByDept(Dept dept, Pageable pageable);
+    List<Emp> findByDept(Dept dept, Pageable pageable);
 
     List<Emp> findByDeptAndIdGreaterThan(Dept dept, Long id);
 
-    //    Page<Emp> findByDeptAndIdGreaterThan(Pageable pageable, Dept dept, Long id);
+    Page<Emp> findByDeptAndIdGreaterThan(Dept dept, Long id, Pageable pageable);
 
     List<Emp> findByDeptAndIdGreaterThan(Dept dept, Long id, Sort sort);
+
+    List<Emp> findByDeptNameLike(String name);
 
     List<Emp> findByDept_NameLike(String name);
 
