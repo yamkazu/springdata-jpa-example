@@ -2,6 +2,7 @@ package org.yamkazu.springdata;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static org.yamkazu.springdata.EmpRepository.Specifications.*;
 
 import java.util.List;
 
@@ -76,4 +77,9 @@ public class EmpRepositoryQueryCreationTest {
         assertThat(emps.size(), is(not(equalTo(0))));
     }
 
+    @Test
+    public void Specificationを使ってみる() throws Exception {
+        List<Emp> emps = repository.findAll(idLessThanOrEqualTo(4L));
+        assertThat(emps.size(), is(not(equalTo(0))));
+    }
 }
