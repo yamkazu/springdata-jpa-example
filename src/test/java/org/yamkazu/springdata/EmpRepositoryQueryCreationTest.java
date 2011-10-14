@@ -76,4 +76,35 @@ public class EmpRepositoryQueryCreationTest {
         assertThat(emps.size(), is(not(equalTo(0))));
     }
 
+    @Test
+    public void JPAの名前付きクエリを使う() throws Exception {
+        List<Emp> emps = repository.findByUseNamedQuery(3L);
+        assertThat(emps.size(), is(not(equalTo(0))));
+    }
+
+    @Test
+    public void Queryアノテーションを使う() throws Exception {
+        List<Emp> emps = repository.findByUseQueryAnnotation(3L);
+        assertThat(emps.size(), is(not(equalTo(0))));
+    }
+
+    @Test
+    public void Queryアノテーションを名前パラメータで使う() throws Exception {
+        List<Emp> emps = repository.findByUseQueryAnnotationWithParam(3L);
+        assertThat(emps.size(), is(not(equalTo(0))));
+    }
+
+    @Test
+    public void updateを定義してみる() throws Exception {
+        repository.setName(1L, "homuhomu");
+        Emp emp = repository.findOne(1L);
+        assertThat(emp.getName(), is("homuhomu"));
+    }
+
+    @Test
+    public void deleteを定義してみる() throws Exception {
+        assertThat(repository.exists(1L), is(true));
+        repository.delete(1L);
+        assertThat(repository.exists(1L), is(false));
+    }
 }
