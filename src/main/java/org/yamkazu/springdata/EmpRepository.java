@@ -38,12 +38,21 @@ public interface EmpRepository extends JpaRepository<Emp, Long>, JpaSpecificatio
 
     List<Emp> findByDept_NameLike(String name);
 
-    public class Specifications {
+    public class EmpSpecifications {
         public static Specification<Emp> idLessThanOrEqualTo(final Long id) {
             return new Specification<Emp>() {
                 @Override
                 public Predicate toPredicate(Root<Emp> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                     return cb.lessThanOrEqualTo(root.get(Emp_.id), id);
+                }
+            };
+        }
+
+        public static Specification<Emp> hasDept(final Dept dept) {
+            return new Specification<Emp>() {
+                @Override
+                public Predicate toPredicate(Root<Emp> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                    return cb.equal(root.get(Emp_.dept), dept);
                 }
             };
         }

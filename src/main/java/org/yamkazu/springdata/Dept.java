@@ -13,6 +13,12 @@ public class Dept {
 
     private String name;
 
+    public static Dept of(Long id) {
+        Dept dept = new Dept();
+        dept.setId(id);
+        return dept;
+    }
+
     public Long getId() {
         return id;
     }
