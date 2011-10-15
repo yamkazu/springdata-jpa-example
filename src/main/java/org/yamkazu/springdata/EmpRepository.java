@@ -13,8 +13,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-public interface EmpRepository extends JpaRepository<Emp, Long>, JpaSpecificationExecutor<Emp> {
+public interface EmpRepository extends JpaRepository<Emp, Long>, JpaSpecificationExecutor<Emp>, QueryDslPredicateExecutor<Emp> {
 
     Emp findByName(String name);
 

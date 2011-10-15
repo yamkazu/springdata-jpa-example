@@ -89,4 +89,10 @@ public class EmpRepositoryQueryCreationTest {
         List<Emp> emps = repository.findAll(where(idLessThanOrEqualTo(9L)).and(hasDept(Dept.of(1L))));
         assertThat(emps.size(), is(not(equalTo(0))));
     }
+
+    @SuppressWarnings("unused")
+    @Test
+    public void Querydslを使う() throws Exception {
+        Iterable<Emp> emps = repository.findAll(QEmp.emp.id.lt(9L).and(QEmp.emp.dept.id.eq(1L)));
+    }
 }
