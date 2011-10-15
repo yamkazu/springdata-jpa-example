@@ -15,7 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
-public interface EmpRepository extends JpaRepository<Emp, Long>, JpaSpecificationExecutor<Emp>, QueryDslPredicateExecutor<Emp> {
+public interface EmpRepository extends JpaRepository<Emp, Long>, JpaSpecificationExecutor<Emp>, QueryDslPredicateExecutor<Emp>, EmpRepositoryCustom {
 
     Emp findByName(String name);
 
